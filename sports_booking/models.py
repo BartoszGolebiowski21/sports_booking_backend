@@ -15,9 +15,9 @@ class SportsFacility(models.Model):
 
 
 class Reservation(models.Model):
-    facility = models.ForeignKey(SportsFacility, on_delete=models.CASCADE)
+    facility = models.ForeignKey(SportsFacility, on_delete=models.CASCADE, null=True, blank=True)
     date = models.DateTimeField(null=True, blank=True)
-    light_on = models.BooleanField(null=True, blank=True)
+    light_on = models.BooleanField(default=True, null=True, blank=True)
     made_by = models.CharField(max_length=15, null=True, blank=True)
 
     def __str__(self):
